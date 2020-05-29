@@ -22,7 +22,7 @@ pipeline {
           }
          steps {
             // Get src code from a GitHub repository
-            git credentialsId: 'Git_UN_Pwd', url: 'https://gitlab.com/zabeersheik60/Maven-Java-Project.git'
+            git credentialsId: 'Github_UN_Pwd', url: 'https://github.com/zabeer-sheik/Maven-Java-Project.git'
             stash 'Source'
             script{
                 mvnHome = tool name: 'maven3', type: 'maven'
