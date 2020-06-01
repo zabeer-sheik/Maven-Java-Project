@@ -46,7 +46,7 @@ pipeline {
 	  //  sshCommand remote: remote1, command: "kubectl apply -f Maven-Java-Project/k8s-code/prod/namespace/prod-ns.yml"
           }
       }
-        stage('Build Code') {
+        stage('SQA') {
          agent {
               label 'BuildServer'
           }
