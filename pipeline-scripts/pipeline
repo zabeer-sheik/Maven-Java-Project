@@ -51,13 +51,15 @@ pipeline {
               label 'BuildServer'
           }
           steps{
-              sh "${mvnHome}/bin/mvn clean verify"  
+              sh "${mvnHome}/bin/mvn clean compile"  
           }
-          //post{
-           //   success{
-            //      junit 'target/surefire-reports/*.xml'
-           //   }
-       //   }
+          post{
+              success{
+	      	  publishCoverage adapters: [antPath('**/target/site/cobertura/coverage.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+	          //'**/target/site/cobertura/coverage.xml'
+                //  junit 'target/surefire-reports/*.xml'
+              }
+          }
       }
       stage('SonarQube analysis') {
          agent {
