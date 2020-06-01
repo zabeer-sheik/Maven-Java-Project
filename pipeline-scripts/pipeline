@@ -46,7 +46,15 @@ pipeline {
 	  //  sshCommand remote: remote1, command: "kubectl apply -f Maven-Java-Project/k8s-code/prod/namespace/prod-ns.yml"
           }
       }
-        
+        stage('Build Code') {
+         agent {
+              label 'BuildServer'
+          }
+          steps{
+	    mvnHome = tool name: 'maven3', type: 'maven'
+              sh "${mvnHome}/bin/mvn clean package"  
+          }
+	}  
       stage('SonarQube analysis') {
          agent {
               label 'BuildServer'
