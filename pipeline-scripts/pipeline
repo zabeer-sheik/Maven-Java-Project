@@ -46,12 +46,12 @@ pipeline {
 	    sshCommand remote: remote1, command: "kubectl apply -f Maven-Java-Project/k8s-code/prod/namespace/prod-ns.yml"
           }
       }
-       stage('Compile') {
+       stage('Build') {
          agent {
               label 'BuildServer'
           }
           steps{
-              sh "${mvnHome}/bin/mvn clean compile"  
+              sh "${mvnHome}/bin/mvn clean verify"  
           }
           //post{
            //   success{
