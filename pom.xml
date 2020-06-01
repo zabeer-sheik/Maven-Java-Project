@@ -126,21 +126,21 @@
         <!-- JUnit code coverage. -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>cobertura-maven-plugin</artifactId>
-        <version>2.6</version>
+        <version>2.7</version>
       </plugin>
     </plugins>
   </reporting>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>deployment</id>
-      <name>my snapshot repository</name>
-      <url>http://192.168.33.10:8080/nexus/content/repositories/snapshots/</url>
-    </snapshotRepository>
-    <repository>
-      <id>deployment</id>
-      <name>my repository</name>
-      <url>http://192.168.33.10:8080/nexus/content/repositories/releases/</url>
-    </repository>
-  </distributionManagement>
+ // <distributionManagement>
+ //   <snapshotRepository>
+ //     <id>deployment</id>
+  //    <name>my snapshot repository</name>
+ //     <url>http://192.168.33.10:8080/nexus/content/repositories/snapshots/</url>
+//    </snapshotRepository>
+//    <repository>
+//      <id>deployment</id>
+ //     <name>my repository</name>
+ //     <url>http://192.168.33.10:8080/nexus/content/repositories/releases/</url>
+ //   </repository>
+//  </distributionManagement>
 </project>
