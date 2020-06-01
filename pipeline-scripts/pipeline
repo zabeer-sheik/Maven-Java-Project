@@ -55,12 +55,12 @@ pipeline {
                 echo "Sonar Scanner"
                   
                 withSonarQubeEnv('sonar-7') { 
-                   // sh '${mvnHome}/bin/mvn clean compile sonar:sonar'
-		   sh '/home/centos/workspace/maven3/bin/mvn clean compile sonar:sonar'
+                    sh '${mvnHome}/bin/mvn clean compile sonar:sonar'
+		  // sh '/home/centos/workspace/maven3/bin/mvn clean compile sonar:sonar'
                 }                     
           }
       }
-      
+           
       stage('Unit Test Cases') {
          agent {
               label 'BuildServer'
