@@ -83,7 +83,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.16</version>
       </plugin>
-      <profiles>
+   <profiles>
     <profile>
       <id>metrics</id>
       <build>
@@ -109,7 +109,7 @@
         <hudson.sign.storepass>jenkins</hudson.sign.storepass>
       </properties>
     </profile> 
-      </profiles>
+  </profiles>
       <plugin>
         <!-- Integration tests are run by failsafe. -->
         <!-- Classes under src/test/java called *IT are included automatically. -->
