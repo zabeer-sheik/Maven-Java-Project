@@ -46,6 +46,19 @@ pipeline {
 	  //  sshCommand remote: remote1, command: "kubectl apply -f Maven-Java-Project/k8s-code/prod/namespace/prod-ns.yml"
           }
       }
+        
+      stage('SonarQube analysis') {
+         agent {
+              label 'BuildServer'
+          }
+          steps{
+                echo "Sonar Scanner"
+                  
+                withSonarQubeEnv('sonar-7') { 
+                   sh "${mvnHome}/bin/mvn sonar:sonar"
+                }                     
+          }
+      }
       
       stage('Unit Test Cases') {
          agent {
@@ -60,33 +73,6 @@ pipeline {
               }
           }
       }
-      
-      stage('SonarQube analysis') {
-         agent {
-              label 'BuildServer'
-          }
-          steps{
-                echo "Sonar Scanner"
-                  
-                withSonarQubeEnv('sonar-7') { 
-                   sh "${mvnHome}/bin/mvn sonar:sonar"
-                }                     
-          }
-      }
-      
-     // stage('Unit Test Cases') {
-     //    agent {
-     //         label 'BuildServer'
-     //     }
-     //     steps{
-     //         sh "${mvnHome}/bin/mvn clean test"  
-     //     }
-     //     post{
-     //         success{
-     //             junit 'target/surefire-reports/*.xml'
-     //         }
-     //     }
-    //  }
       
        stage('Build Code') {
          agent {
