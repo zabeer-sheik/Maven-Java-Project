@@ -56,7 +56,7 @@ pipeline {
                   
                 withSonarQubeEnv('sonar-7') { 
                    // sh '${mvnHome}/bin/mvn clean compile sonar:sonar'
-		   sh "/home/centos/workspace/maven3/bin/mvn clean compile sonar:sonar"
+		   sh '/home/centos/workspace/maven3/bin/mvn clean compile sonar:sonar'
                 }                     
           }
       }
